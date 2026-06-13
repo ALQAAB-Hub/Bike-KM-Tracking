@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bike KM Tracking</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="manifest" href="manifest.json">
+</head>
+<body>
+  <div class="container">
+    <h1>🏍️ Bike KM Tracking</h1>
+    <p class="subtitle">InDrive Style • Safar ka Hisaab</p>
+
+    <!-- Entry Form sabse upar -->
+    <div class="card input-card">
+      <h3>➕ Naya Record / ✏️ Edit</h3>
+      <div class="input-group">
+        <label>📅 Date</label>
+        <input type="date" id="date" required>
+      </div>
+      <div class="input-group">
+        <label>🔢 Start Meter</label>
+        <input type="number" id="startMeter" placeholder="Shuruaat ki reading">
+      </div>
+      <div class="input-group">
+        <label>🔢 End Meter</label>
+        <input type="number" id="endMeter" placeholder="Aakhri reading, phir Enter dabayein" onkeydown="if(event.key==='Enter') addRecord()">
+      </div>
+      <button onclick="addRecord()" class="btn add-btn" id="addUpdateBtn">Add Record</button>
+    </div>
+
+    <!-- Table (Records) -->
+    <div class="card table-card">
+      <h3>📋 Tracking Records</h3>
+      <div class="table-wrapper">
+        <table id="recordTable">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Start KM</th>
+              <th>End KM</th>
+              <th>Total KM</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Backup / Restore buttons -->
+    <div class="card backup-card">
+      <div class="btn-group">
+        <button onclick="exportJSON()" class="btn small-btn export-btn">📤 Export Backup</button>
+        <button onclick="importJSON()" class="btn small-btn import-btn">📥 Import Restore</button>
+      </div>
+      <input type="file" id="fileInput" accept=".json" hidden>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <div class="footer-info">
+          <h3>Bike KM Tracking</h3>
+          <p>
+            Meter Tracking System v1.0 (<span id="currentDate"></span>)<br>©Copyright 2026 by I.T. Department of ALQAAB Tech by ALQAAB-Hub | Shahbaz Ali
+          </p>
+        </div>
+        <div class="footer-links">
+          <h3>Connect With Us</h3>
+          <div class="social-links">
+            <a href="https://maps.app.goo.gl/VRAW4Poyuh58bCPw5" target="_blank" title="Location"><i class="fas fa-map-marker-alt"></i></a>
+            <a href="https://www.linkedin.com/in/alqaaborg" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/ALQAAB-Org" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://wa.me/923261182021" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.facebook.com/alqaab.org" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.youtube.com/@ALQAAB_YT_Studio" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>Designed with ❤️ by ALQAAB Hub</p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js');
+    }
+  </script>
+</body>
+</html>
