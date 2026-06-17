@@ -158,6 +158,20 @@ function updateFooterDate() {
   document.getElementById('currentDate').textContent = today;
 }
 
+function clearAllRecords() {
+  if (records.length === 0) {
+    alert('Koi record mojood nahi hai!');
+    return;
+  }
+  if (confirm('Kya aap waqai saare records delete karna chahte hain? Ye action undo nahi ho sakta.')) {
+    records = [];
+    saveToStorage();
+    renderTable();
+    resetForm();  // agar edit mode mein ho to form bhi reset ho jaye
+    alert('Sare records delete kar diye gaye.');
+  }
+}
+
 // Initial setup
 setTodayDate();
 updateFooterDate();
