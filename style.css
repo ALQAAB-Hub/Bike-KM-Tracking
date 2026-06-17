@@ -209,6 +209,14 @@ tr:hover td {
   background: #e65c00;
 }
 
+.clear-btn {
+  background: #d32f2f;
+  box-shadow: 0 4px 10px rgba(211, 47, 47, 0.2);
+}
+.clear-btn:hover {
+  background: #b71c1c;
+}
+
 /* Footer */
 footer {
   background: #1b5e20;
