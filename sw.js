@@ -1,4 +1,4 @@
-const CACHE_NAME = 'bike-km-tracker-v1';
+const CACHE_NAME = 'bike-km-tracker-v1.1';
 const urlsToCache = [
   '.',
   'index.html',
